@@ -1,0 +1,436 @@
+/*----------------------------------------------------------------------------------------------------------------------
+[Table of contents]
+
+A. Basic Styling
+  -- Styling
+
+B. Helpers
+  -- Animations
+  -- Universal Classes
+
+C. Components
+
+----------------------------------------------------------------------------------------------------------------------*/
+
+/***********************************************************************************************************************
+A. Basic Styling
+***********************************************************************************************************************/
+@font-face { font-family: "Anja Eliane accent"; src: url('../fonts/AnjaEiliane.ttf'); }
+body, html {
+    height: 100%;
+    font-family: 'Anja Eliane accent', sans-serif;
+    font-size: 1rem;
+    overflow: hidden;
+    position: relative;
+    margin-right: 0 !important;
+    margin: 0;
+}
+
+a {
+    transition: .4s ease;
+    outline: none !important;
+    color: #000;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+a.icon i {
+    margin-right: .375rem;
+    margin-left: .375rem;
+}
+
+dl dt {
+    float: left;
+}
+
+dl dd {
+    text-align: right;
+    margin-bottom: .375rem;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: .875rem;
+}
+
+p {
+    opacity: .6;
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+/***********************************************************************************************************************
+B. Helpers
+***********************************************************************************************************************/
+
+/* Animate */
+
+.animate {
+    transition: .6s;
+    opacity: 0;
+    transform: scale(.98);
+}
+
+.animate.idle {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.background-wrapper, .active-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.background-wrapper img, .active-slider img {
+    width: 100%;
+    height: auto;
+}
+
+.background-wrapper .map, .active-slider .map {
+    height: 100%;
+}
+
+.background-wrapper .background-color, .active-slider .background-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.background-wrapper .background-color.background-color-white,
+.active-slider .background-color.background-color-white {
+    background-color: #fff;
+}
+
+.background-wrapper .background-color.background-color-black,
+.active-slider .background-color.background-color-black {
+    background-color: #000;
+}
+
+.bg-transfer {
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    width: 100%;
+}
+
+.bg-transfer img {
+    display: none !important;
+}
+
+.bg-transfer.bg-fixed {
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: top center;
+}
+
+.center {
+    text-align: center;
+}
+
+.note {
+    opacity: .4;
+    font-size: .75rem;
+    margin: .5rem 0;
+}
+
+.shadow {
+    box-shadow: 0 .0625rem .625rem rgba(0, 0, 0, .07);
+}
+
+.font-size-10 {
+    font-size: .625rem;
+}
+
+.font-size-20 {
+    font-size: 1.25rem;
+}
+
+.font-size-30 {
+    font-size: 1.875rem;
+}
+
+.font-size-40 {
+    font-size: 2.5rem;
+}
+
+.font-size-50 {
+    font-size: 3.125rem;
+}
+
+.font-size-60 {
+    font-size: 3.75rem;
+}
+
+.font-size-70 {
+    font-size: 4.375rem;
+}
+
+.font-size-80 {
+    font-size: 5rem;
+}
+
+.font-size-90 {
+    font-size: 5.625rem;
+}
+
+.font-size-100 {
+    font-size: 6.25rem;
+}
+
+.font-size-110 {
+    font-size: 6.875rem;
+}
+
+.font-size-120 {
+    font-size: 7.5rem;
+}
+
+.opacity-90 {
+    opacity: .9;
+}
+
+.opacity-80 {
+    opacity: .8;
+}
+
+.opacity-70 {
+    opacity: .7;
+}
+
+.opacity-60 {
+    opacity: .6;
+}
+
+.opacity-50 {
+    opacity: .5;
+}
+
+.opacity-40 {
+    opacity: .4;
+}
+
+.opacity-30 {
+    opacity: .3;
+}
+
+.opacity-20 {
+    opacity: .2;
+}
+
+.opacity-19 {
+    opacity: .19;
+}
+
+.opacity-18 {
+    opacity: .18;
+}
+
+.opacity-17 {
+    opacity: .17;
+}
+
+.opacity-16 {
+    opacity: .16;
+}
+
+.opacity-15 {
+    opacity: .15;
+}
+
+.opacity-14 {
+    opacity: .14;
+}
+
+.opacity-13 {
+    opacity: .13;
+}
+
+.opacity-12 {
+    opacity: .12;
+}
+
+.opacity-11 {
+    opacity: .11;
+}
+
+.opacity-10 {
+    opacity: .1;
+}
+
+.opacity-9 {
+    opacity: .09;
+}
+
+.opacity-8 {
+    opacity: .08;
+}
+
+.opacity-7 {
+    opacity: .07;
+}
+
+.opacity-6 {
+    opacity: .06;
+}
+
+.opacity-5 {
+    opacity: .05;
+}
+
+.opacity-4 {
+    opacity: .04;
+}
+
+.opacity-3 {
+    opacity: .03;
+}
+
+.opacity-2 {
+    opacity: .02;
+}
+
+.opacity-1 {
+    opacity: .01;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+/***********************************************************************************************************************
+C. Components
+***********************************************************************************************************************/
+
+/* Background */
+
+#background-content {
+    height: 100%;
+    width: 100%;
+}
+
+/* -- Box */
+
+.box {
+    margin-bottom: 1.875rem;
+}
+
+.box .icon {
+    margin-top: .9375rem;
+}
+
+/* -- Content Wrapper */
+
+.content-wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.content-wrapper .content-main {
+    text-align: center;
+    z-index: 1;
+    pointer-events: none;
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+}
+
+.content-wrapper .content-main h1 {
+    margin-bottom: 2.5rem;
+}
+
+.content-wrapper .content-main h2 {
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.content-wrapper .content-main form {
+    pointer-events: auto;
+    margin-top: 1.875rem;
+    margin-bottom: 1.25rem;
+}
+
+.content-wrapper .content-main .container {
+    z-index: 1;
+    position: relative;
+}
+
+/* -- Footer */
+
+footer {
+    position: absolute;
+    bottom: .625rem;
+    text-align: center;
+    width: 100%;
+}
+
+footer .social-icons a {
+    opacity: .5;
+    color: #000;
+    padding: .3125rem .625rem;
+    display: inline-block;
+    font-size: 1.125rem;
+}
+
+footer .social-icons a:hover {
+    opacity: 1;
+}
+
+.logo {
+    height: 300px;
+}
+
+.main-btn {
+    margin-bottom: 2rem;
+    border-radius: 24px;
+    font-size: 28px;
+    border: none;
+    padding: 1rem 2rem;
+    background-color: #2aabd2;
+}
+
+.main-btn:hover {
+    box-shadow: 5px 10px black;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}

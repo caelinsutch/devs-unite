@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="ThemeStarz">
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+    <!-- Primary Meta Tags -->
+    <title>Devs Unite - Developer Community</title>
+    <meta name="title" content="Devs Unite - Developer Community">
+    <meta name="description" content="A developer community dedicated to learning, sharing, and growing as software developers. ">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devcommunity.xyz/">
+    <meta property="og:title" content="Devs Unite - Developer Community">
+    <meta property="og:description" content="A developer community dedicated to learning, sharing, and growing as software developers. ">
+    <meta property="og:image" content="https://i.imgur.com/1gsKd46.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Devs Unite - Developer Community">
+    <meta property="twitter:description" content="A developer community dedicated to learning, sharing, and growing as software developers. ">
+    <meta property="twitter:image" content="https://i.imgur.com/1gsKd46.png"">
+    <style>
+        body { background-color: #f3f3f3; }
+    </style>
+
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    <div class="content-wrapper">
+        <div class="content-main animate">
+            <div class="container">
+                <img src="assets/icon.svg" alt="Logo" class="logo">
+                <h1 class="font-size-90">Devs Unite</h1>
+                <h2 class="opacity-60">A developer community dedicated to learning, sharing, and growing as software developers.</h2>
+            </div>
+            <!--end container-->
+        </div>
+        <!--end content-main-->
+        <div class="background-wrapper">
+            <div id="background-content"></div>
+        </div>
+        <!--end background-wrapper-->
+    </div>
+
+    <!--end content-wrapper-->
+    <footer>
+        <div class=" animate">
+            <a href="https://discord.gg/Jd936Ee" class="main-btn">Join our Discord</a>
+
+            <h5 class="opacity-60" style="margin-top: 4rem">A Project by Caelin Sutch</h5>
+        </div>
+    </footer>
+</div>
+<!--end page-wrapper-->
+
+<script  src="assets/js/jquery-2.2.1.min.js"></script>
+<script  src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script  src="assets/js/sketch.min.js"></script>
+<script  src="assets/js/custom.js"></script>
+
+<script>
+
+    // Background
+
+    var COLOURS = [ '#61dfff', '#A7EBCA', '#FFFFFF', '#ff6767', '#61dfff' ];
+    var radius = 0;
+    var randomColor = 0;
+
+    Sketch.create({
+
+        container: document.getElementById( 'background-content' ),
+        autoclear: false,
+        retina: 'auto',
+
+        update: function() {
+            radius = 2 + abs( sin( this.millis * 0.003 ) * 50 );
+        },
+
+        click: function() {
+            randomColor = parseInt( 0 + (COLOURS.length - 0) * Math.random(), 10 ) ;
+        },
+
+        touchmove: function() {
+
+            for ( var i = this.touches.length - 1, touch; i >= 0; i-- ) {
+
+                touch = this.touches[i];
+
+                this.lineCap = 'round';
+                this.lineJoin = 'round';
+                this.fillStyle = this.strokeStyle = COLOURS[ randomColor % COLOURS.length ];
+                this.lineWidth = radius;
+
+                this.beginPath();
+                this.moveTo( touch.ox, touch.oy );
+                this.lineTo( touch.x, touch.y );
+                this.stroke();
+            }
+        }
+    });
+
+
+</script>
+
+</body>
